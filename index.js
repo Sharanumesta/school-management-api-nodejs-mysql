@@ -1,12 +1,13 @@
 import dotenv from "dotenv";
 import express from "express";
 import dbConnect from "./db/dbConnection.js";
-import router from "./routes/router.js";
+import schoolRouter from "./routes/router.js";
 
 const app = express();
 dotenv.config({ path: "./.env" });
+app.use(express.json());
 
-app.use("/api/v1/school", router);
+app.use("/api/v1/schools", schoolRouter);
 
 const port = process.env.PORT;
 dbConnect()

@@ -1,14 +1,22 @@
 import { z } from "zod";
 
 const schoolSchema = z.object({
-    name: z.string().max(255, { message: 'Name should not exceed 255 characters' }),
-    address: z.string().max(500, { message: 'Address should not exceed 500 characters' }),
-    latitude: z.number().refine(val => !isNaN(val) && val >= -90 && val <= 90, {
-      message: 'Latitude must be a number between -90 and 90',
-    }),
-    longitude: z.number().refine(val => !isNaN(val) && val >= -180 && val <= 180, {
-      message: 'Longitude must be a number between -180 and 180',
-    })
+    id: z.number()
+        .positive({ message: 'Id must be a positive number' }), 
+    name: z.string()
+        .max(255, { message: 'Name should not exceed 255 characters' })
+        .nonempty({ message: 'Name is required' }),
+    address: z.string()
+        .max(500, { message: 'Address should not exceed 500 characters' })
+        .nonempty({ message: 'Address is required' }),
+    latitude: z.preprocess(
+        val => parseFloat(val), 
+        z.number().min(-90, { message: 'Latitude must be >= -90' }).max(90, { message: 'Latitude must be <= 90' })
+    ),
+    longitude: z.preprocess(
+        val => parseFloat(val), 
+        z.number().min(-180, { message: 'Longitude must be >= -180' }).max(180, { message: 'Longitude must be <= 180' })
+    ),
 });
 
 export default schoolSchema;
