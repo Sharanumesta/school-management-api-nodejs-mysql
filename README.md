@@ -102,4 +102,5 @@ npm start
    The live API endpoints are accessible for testing. Please use the provided URLs to test the functionality.
 
 3. **Postman Collection**  
-   A Postman collection will be shared via email or accessible through a shared link.
+   You can access the API documentation and Postman collection using the following [link](https://alone7-8517.postman.co/workspace/Alone-Workspace~e9c75852-334e-4411-a7fd-4319c6f95992/request/25239808-a9cb411d-c166-419f-b351-ed6a1b28f6ef?action=share&creator=25239808&ctx=documentation&active-environment=25239808-41befb3b-c5be-497e-b613-5a5036789c94)
+
