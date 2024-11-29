@@ -30,3 +30,76 @@ CREATE TABLE schools (
     latitude FLOAT NOT NULL,
     longitude FLOAT NOT NULL
 );
+```
+## 2. Environment Configuration
+
+Create a `.env` file in the root directory of your project and configure the MySQL database connection details. An example `.env` file might look like this:
+
+```plaintext
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=your_password
+DB_NAME=school_management
+DB_PORT=3306
+```
+## 3. Install Dependencies
+Run the following command to install the necessary dependencies:
+```plaintext
+npm install
+```
+
+## 4. Run the Application
+Start the server using the following command:
+```plaintext
+npm start
+```
+
+## API Endpoints
+
+### 1. Add School
+- **URL**: `http://localhost:8000/api/v1/schools/`
+- **Endpoint**: `/addSchool`
+- **Method**: `POST`
+- **Payload**:
+  ```json
+  {
+      "name": "Example School",
+      "address": "123 Main Street, Example City",
+      "latitude": 12.9716,
+      "longitude": 77.5946
+  }
+  ```
+#### Functionality:
+- Validates the input data.
+- Adds the validated data to the schools table in the database.
+
+### 2. List Schools by Proximity
+
+- **Endpoint**: `/listSchools`
+- **Method**: `GET`
+
+- **Parameters**:
+  - `latitude`: User's current latitude.
+  - `longitude`: User's current longitude.
+
+- **Example URL**:
+ ```plaintext
+ `http://localhost:8000/api/v1/schools/listSchools?latitude=80&longitude=-73.9682846069336`
+```
+
+#### Functionality:
+  - Fetches all school records from the database.
+  - Sorts them by distance from the user's location using the Haversine formula.
+  - Returns the sorted list of schools.
+
+## Deliverables:
+
+1. **Source Code Repository**  
+   The complete API implementation is available at the following GitHub repository:  
+   [School Management API Repository](https://github.com/Sharanumesta/school-management-api-nodejs-mysql)
+
+2. **Live API Endpoints**  
+   The live API endpoints are accessible for testing. Please use the provided URLs to test the functionality.
+
+3. **Postman Collection**  
+   A Postman collection will be shared via email or accessible through a shared link.
