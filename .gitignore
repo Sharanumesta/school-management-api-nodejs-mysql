@@ -1,1 +1,24 @@
+# Environment variables
+.env
+.env.local
+.env.production
+.env.development
+.env.test
+
+# Node modules
 node_modules/
+
+# Build and output directories
+.vercel/
+.next/
+dist/
+out/
+
+# Logs
+npm-debug.log
+yarn-error.log
+
+# System files
+.DS_Store
+.vscode/
+.idea/
